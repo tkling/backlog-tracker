@@ -30,6 +30,11 @@ gem 'virtus', '~> 1.0'
 gem 'steam-api', '~> 1.0'
 gem 'ruby-openid', '~> 2.7'
 
+group :production do
+  gem 'rails_12factor', '~> 0.0'
+  gem 'pg', '~> 0.18'
+end
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
