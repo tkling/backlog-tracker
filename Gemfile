@@ -31,9 +31,9 @@ gem 'virtus', '~> 1.0'
 gem 'steam-api', '~> 1.0'
 gem 'ruby-openid', '~> 2.7'
 gem 'foreman'
+gem 'rails_12factor', '~> 0.0'
 
 group :production do
-  gem 'rails_12factor', '~> 0.0'
   gem 'pg', '~> 0.18'
 end
 
@@ -47,6 +47,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'dotenv-rails'
+  gem 'sqlite3'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
