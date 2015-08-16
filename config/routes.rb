@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get ':user_id/games' => 'games#show'
   get ':user_id/games/ugly' => 'games#index'
   get 'logon/via-steam' => 'auth#via_steam_openid'
-  get 'logon/success' => 'auth#success'
+  get 'logon/success' => 'auth#result'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
