@@ -205,7 +205,7 @@ DEPENDENCIES
   jquery-rails
   pg (~> 0.18)
   pry-rails
-  puma
+  puma (~> 2.13)
   rails (= 4.2.3)
   rails_12factor (~> 0.0)
   ruby-openid (~> 2.7)

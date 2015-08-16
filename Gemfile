@@ -25,16 +25,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'puma'
+gem 'puma', '~> 2.13'
 gem 'typhoeus', '~> 0.7'
 gem 'virtus', '~> 1.0'
 gem 'steam-api', '~> 1.0'
 gem 'ruby-openid', '~> 2.7'
-gem 'foreman'
-gem 'rails_12factor', '~> 0.0'
 
 group :production do
   gem 'pg', '~> 0.18'
+  gem 'rails_12factor', '~> 0.0'
 end
 
 # Use Capistrano for deployment
@@ -48,6 +47,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'dotenv-rails'
   gem 'sqlite3'
+  gem 'foreman'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
