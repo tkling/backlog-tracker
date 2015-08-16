@@ -30,7 +30,7 @@ class GamesController < ApplicationController
 
     @games = response['games'].map { |g| Game.new(g) }
     @most_played_game = @games.sort { |g1, g2| g2.playtime_forever <=> g1.playtime_forever }.first
-    @total_hours_played = @games.map { |g| g.playtime_forever_hours }.inject(:+).round(2)
+    @total_hours_played = @games.map(&:playtime_forever_hours).inject(:+).round(2)
     @unplayed = @games.select { |g| g.playtime_forever == 0 }
   end
 end
