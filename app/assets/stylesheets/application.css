@@ -1,0 +1,204 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+body {
+    background-image: url("office.png");
+    color: #000;
+    font-family: "Trebuchet MS",Verdana,Helvetica,Sans-Serif;
+    font-size: 16px;
+}
+
+h3 {
+    font-size: 1.23em;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: "Trebuchet MS",Verdana,Helvetica,Sans-Serif;
+    font-size: 16px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display:none;
+}
+
+a:visited {
+    color: #939393;
+}
+
+a:link {
+    color: #9CBD76;
+    font-weight: bold;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+fieldset {
+    border: 1px solid #DDDDDD;
+    margin: 0 0 1.5em;
+    padding: 0 1.4em 1.4em;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0;
+}
+
+.field-validation-error {
+    color: #FF0000;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    background-color: #FFEEEE;
+    border: 1px solid #FF0000;
+}
+
+.validation-summary-errors {
+    color: #FF0000;
+    font-weight: bold;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.menu-bar {
+    padding-top: 16px;
+}
+
+ul.menu-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.menu-link {
+    display: inline-block;
+    padding-left: 7px;
+    padding-right: 5px;
+}
+
+.submit {
+    padding: 1em;
+    margin-top:13px;
+    font-size:large;
+}
+
+.body-container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 960px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.main-content {
+    background-image: url("subtle_surface.png");
+    border: 2px solid #000;
+    padding: 28px;
+}
+
+.title {
+    background-image: url("grey.png");
+    border: 3px solid #000;
+    display: inline-block;
+    padding-left: 11px;
+    padding-right: 11px;
+    width: 97%;
+}
+
+.stat-info {
+    background-image: url("grey.png");
+    border: 3px solid #000;
+    display: inline-block;
+    max-width: 45%;
+    min-width: 45%;
+    padding: 11px;
+    text-align: center;
+}
+
+.center {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.box-left {
+    clear: left;
+    float: left;
+    margin-right: 13px;
+}
+
+.box-right {
+    clear: right;
+    float: right;
+    margin-left: 13px;
+}
+
+.stat-info-center {
+    display: inline-block;
+    text-align: center;
+}
+
+.stats-info-container {
+    padding-bottom: 10px;
+}
+
+.clear {
+    clear: both;
+}
+
+.bold {
+    font-size: 110%;
+    font-weight: bolder;
+}
+
+.left {
+    float: left;
+}
+
+a.logon-link {
+    background: url("http://cdn.steamcommunity.com/public/signinthroughsteam/sits_large_border.png") no-repeat scroll left top transparent;
+    border: 0 none;
+    display: block;
+    height: 51px;
+    text-indent: -9999px;
+    width: 118px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.hidden {
+    display: none;
+}
+

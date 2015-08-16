@@ -1,0 +1,17 @@
+<div>
+  <p>
+    Count from api: <%= @games.count %>
+  </p>
+
+
+  <p>
+    total hours api: <%= @hours_played %>
+  </p>
+
+  <p>
+    Games from api:
+    <% @games.sort! { |g1, g2| g2.playtime_forever <=> g1.playtime_forever }.each do |game| %>
+      <br/><%= game.name %>:<%= game.appid %>:<%= game.playtime_forever_hours %>
+    <% end %>
+  </p>
+</div>
