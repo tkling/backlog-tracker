@@ -2,9 +2,10 @@ require 'openid/store/memory'
 
 class AuthController < ApplicationController
   def via_steam_openid
-    steam_oid_service = OpenID::OpenIDServiceEndpoint.from_op_endpoint_url('http://steamcommunity.com/openid/login')
+    discovery_result = OpenID.discover_uri('http://steamcommunity.com/openid')
     consumer = OpenID::Consumer.new(session, OpenID::Store::Memory.new)
-    auth_request = consumer.begin_without_discovery(steam_oid_service, true)
+    service_endpoint = discovery_result[1].first
+    auth_request = consumer.begin_without_discovery(service_endpoint, true)
     redirect_to auth_request.redirect_url(base_url, "#{base_url}/logon/success")
   end
 
@@ -14,7 +15,7 @@ class AuthController < ApplicationController
 
   private
   def base_url
-    "http://#{params['HTTP_HOST']}"
+    "http://#{request.env['HTTP_HOST']}"
   end
   # public ActionResult ViaSteamOpenId() {
   #   if (this.HttpContext.Request.UrlReferrer != null) {
