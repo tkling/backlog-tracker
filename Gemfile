@@ -25,11 +25,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'thin', '~> 1.6'
+gem 'puma'
 gem 'typhoeus', '~> 0.7'
 gem 'virtus', '~> 1.0'
 gem 'steam-api', '~> 1.0'
 gem 'ruby-openid', '~> 2.7'
+gem 'foreman'
 
 group :production do
   gem 'rails_12factor', '~> 0.0'
