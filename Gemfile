@@ -25,10 +25,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'thin', '~> 1.6'
-gem 'typhoeus'
-gem 'virtus'
-gem 'steam-api'
-gem 'ruby-openid'
+gem 'typhoeus', '~> 0.7'
+gem 'virtus', '~> 1.0'
+gem 'steam-api', '~> 1.0'
+gem 'ruby-openid', '~> 2.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
