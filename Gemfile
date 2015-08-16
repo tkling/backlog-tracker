@@ -28,6 +28,7 @@ gem 'thin', '~> 1.6'
 gem 'typhoeus'
 gem 'virtus'
 gem 'steam-api'
+gem 'ruby-openid'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
