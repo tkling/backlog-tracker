@@ -188,7 +188,7 @@ ul.menu-list {
 }
 
 a.logon-link {
-    background: url("http://cdn.steamcommunity.com/public/signinthroughsteam/sits_large_border.png") no-repeat scroll left top transparent;
+    background: url("http://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_large_border.png") no-repeat scroll left top transparent;
     border: 0 none;
     display: block;
     height: 51px;

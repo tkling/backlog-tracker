@@ -1,5 +1,7 @@
-class GamesController < ApplicationController
-  def show
+class UserController < ApplicationController
+  def instructions; end
+
+  def games
     index
   end
 
@@ -12,11 +14,12 @@ class GamesController < ApplicationController
   private
 
   def setup_steam_id
+    @id.strip!
     if @id =~ /^[\d]{17}$/
       @vanity_name = nil
     else
       @vanity_name = @id.clone
-      @id = steamid_64(@id.strip)
+      @id = steamid_64(@id)
     end
   end
 

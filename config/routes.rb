@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-  get ':user_id/games' => 'games#show'
-  get ':user_id/games/ugly' => 'games#index'
-  get 'logon/via-steam' => 'auth#via_steam_openid'
-  get 'logon/success' => 'auth#result'
+  get ':user_id/games' => 'user#games', as: :user_games
+  get ':user_id/games/ugly' => 'user#index'
+  get 'user/instructions' => 'user#instructions', as: :instructions
+  get 'auth/steam' => 'auth#via_steam_openid', as: :auth_start
+  get 'auth/result' => 'auth#result'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'home#index', as: :home
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
