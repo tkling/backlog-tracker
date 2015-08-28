@@ -10,25 +10,8 @@
     <a href="<%= auth_start_url %>" class="logon-link">Login through Steam!</a>
 
     <p>
-      When you click the link above, you'll be taken to Steam to login and authenticate.
-      Once you login with Steam, you'll come back here and we'll start analyzing your stats.
+      When you click the link above, you'll be taken to Steam to authenticate.
+      Once you login with Steam, you'll come back here and we'll start retrieving your stats.
     </p>
-
-    <div class="version-toggle"><h3>What's up with the version number? (click me)</h3></div>
-        <pre class="version-notes">
-Put your stunner shades on. Here's how the site has progressed, and some plans for the future:
-
-<strong>v.01</strong> - Total bare bones. At this point the only thing I had was a JSON dump of game titles.
-
-<strong>v.02</strong> - Some basic styling. I was doing more than just javascript alerting the game titles and play times. A lot of changes were happening as I experimented with some new technologies.
-
-<strong>v.03</strong> - Steam OpenID sign-in was the biggie here. This made my backend a lot cleaner - prior to this change, I didn't have a reliable way to get the 1 true Steam ID that works with all of my use cases. Now that I had that one golden Steam ID, I could use some of their developer APIs to pull back much cooler data.
-
-<strong>v0.5</strong> - A ton of stuff. Achievement stats are now shown, pages got a MAJOR facelift (now in stunning color), a thorough cleanup of the codebase. This one felt big enough to switch out of ridiculous versioning mode (.02, or version two hundredths? That doesn't even sound like a real thing.)
-
-<strong>Plans</strong> - Sooner or later I'm going to start saving achievements and game times, so a bunch of cool things can happen. Leaderboards, comparing with friends (that doesn't have to wait), quicker load times for a bunch of stuff, automatic resyncing of profiles, cool graphs, achievements over time, total gametime over time, comparisons on relative ease of achievements. Soon!
-
-<strong>v0.6</strong> - Completely rewritten in Ruby using Rails 4.
-        </pre>
   </div>
 </div>

@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-  def index
-    # yolo
-  end
+  def index; end
+  def about; end
 end
