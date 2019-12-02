@@ -34,7 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'puma', '~> 2.13'
+gem 'puma', '~> 4'
 gem 'typhoeus', '~> 0.7'
 gem 'virtus', '~> 1.0'
 gem 'steam-api', '~> 1.0'
