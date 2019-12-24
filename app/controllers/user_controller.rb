@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class UserController < ApplicationController
   def instructions; end
 
@@ -16,7 +17,7 @@ class UserController < ApplicationController
   def setup_steam_id
     @id.strip!
     if @id =~ /^[\d]{17}$/
-      @vanity_name = nil
+      @vanity_name = session[:persona_name]
     else
       @vanity_name = @id.clone
       @id = steamid_64(@id)
@@ -32,7 +33,7 @@ class UserController < ApplicationController
     response = Steam::Player.owned_games(@id, params: options)
 
     @games = response['games'].map { |g| Game.new(g) }
-    @most_played_game = @games.sort { |g1, g2| g2.playtime_forever <=> g1.playtime_forever }.first
+    @most_played_game = @games.min { |g1, g2| g2.playtime_forever <=> g1.playtime_forever }
     @total_hours_played = @games.map(&:playtime_forever_hours).inject(:+).round(2)
     @unplayed = @games.select { |g| g.playtime_forever == 0 }
   end
