@@ -101,6 +101,8 @@ textarea {
 ul.menu-list {
     list-style-type: none;
     padding-left: 0;
+    display: table;
+    width: 100%;
 }
 
 .menu-link {
@@ -185,6 +187,10 @@ ul.menu-list {
 
 .left {
     float: left;
+}
+
+.right {
+    float: right;
 }
 
 a.logon-link {
