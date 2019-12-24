@@ -26,6 +26,7 @@
         <li class="menu-link"><a href="<%= home_path %>">home</a></li>
         <% if logged_in? %>
           <li class="menu-link"><a href="<%= user_games_path(steam_id) %>"><%= steam_display_name %>'s game stats</a></li>
+          <li class="menu-link"><a href="#">backlog roulette (soon!)</a></li>
           <li class="menu-link"><a href="<%= steam_profile_url %>">steam profile</a></li>
           <li class="menu-link right"><a href="<%= logout_path %>">logout</a></li>
         <% end %>
