@@ -7,6 +7,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 require 'openid'
+require 'virtus'
 
 module Backlogtracker
   class Application < Rails::Application
