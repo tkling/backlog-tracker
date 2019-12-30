@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class UserController < ApplicationController
   def instructions; end
 
@@ -35,6 +36,6 @@ class UserController < ApplicationController
     @games = response['games'].map { |g| Game.new(g) }
     @most_played_game = @games.min { |g1, g2| g2.playtime_forever <=> g1.playtime_forever }
     @total_hours_played = @games.map(&:playtime_forever_hours).inject(:+).round(2)
-    @unplayed = @games.select { |g| g.playtime_forever == 0 }
+    @unplayed = @games.select { |g| g.playtime_forever.zero? }
   end
 end
