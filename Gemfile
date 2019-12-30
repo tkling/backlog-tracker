@@ -40,7 +40,6 @@ gem 'rubocop', '~> 0.78.0', require: false
 gem 'ruby-openid', '~> 2.7'
 gem 'steam-api', '~> 1.0'
 gem 'typhoeus', '~> 0.7'
-gem 'virtus', '~> 1.0'
 
 group :production do
   gem 'pg', '~> 0.18'
