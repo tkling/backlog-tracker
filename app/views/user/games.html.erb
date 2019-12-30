@@ -8,10 +8,10 @@
   <h2>Collection stats:</h2>
   <div class="stat-info box-left">
     <h3>Played vs. unplayed (backlog)</h3>
-    <p>Number of games in collection:<br /><span class="bold"><%= @games.count %></span></p>
-    <p>Number of games not yet played:<br /><span class="bold"><%= @unplayed.count %></span></p>
+    <p>Number of games in collection:<br /><span class="bold"><%= @collection_data.games.count %></span></p>
+    <p>Number of games not yet played:<br /><span class="bold"><%= @collection_data.unplayed_games.count %></span></p>
     <p>Percentage of games not yet played:<br />
-      <span class="bold"><%= (Float(@unplayed.count) / Float(@games.count) * 100.0).round(2) %></span>
+      <span class="bold"><%= (Float(@collection_data.unplayed_games.count) / Float(@collection_data.games.count) * 100.0).round(2) %></span>
     </p>
   </div>
   <div class="stat-info achievements box-right">
@@ -34,19 +34,19 @@
   <h2>Playtime stats:</h2>
   <div class="stat-info box-left">
     <h3>Total time played</h3>
-    <p>Total hours played:<br /><span class="bold"><%= @total_hours_played %></span></p>
-    <p>days: <span class="bold"><%= (@total_hours_played / 24.0).round(2) %></span>&nbsp;
-      weeks: <span class="bold"><%= (@total_hours_played / 24.0 / 7.0).round(2) %></span>&nbsp;
-      YEARS: <span class="bold"><%= (@total_hours_played / 24.0 / 365.0).round(2) %></span></p>
-    <p>Average hours/game:<br /><span class="bold"><%= (@total_hours_played / Float(@games.count)).round(2) %></span></p>
+    <p>Total hours played:<br /><span class="bold"><%= @collection_data.total_hours_played %></span></p>
+    <p>days: <span class="bold"><%= (@collection_data.total_hours_played / 24.0).round(2) %></span>&nbsp;
+      weeks: <span class="bold"><%= (@collection_data.total_hours_played / 24.0 / 7.0).round(2) %></span>&nbsp;
+      YEARS: <span class="bold"><%= (@collection_data.total_hours_played / 24.0 / 365.0).round(2) %></span></p>
+    <p>Average hours/game:<br /><span class="bold"><%= (@collection_data.total_hours_played / Float(@collection_data.games.count)).round(2) %></span></p>
   </div>
   <div class="stat-info box-right">
     <h3>Most played game</h3>
-    <p>Most played game:<br /><span class="bold"><%= @most_played_game.name %></span></p>
-    <p>Hours played:<br /><span class="bold"><%= @most_played_hours = @most_played_game.playtime_forever_hours %></span></p>
+    <p>Most played game:<br /><span class="bold"><%= @collection_data.most_played_game.name %></span></p>
+    <p>Hours played:<br /><span class="bold"><%= @most_played_hours = @collection_data.most_played_game.playtime_forever_hours %></span></p>
     <p>Percentage of total play time:<br />
       <span class="bold">
-          <%= (Float(@most_played_hours) / @total_hours_played * 100.0).round(2) %>
+          <%= (Float(@most_played_hours) / @collection_data.total_hours_played * 100.0).round(2) %>
       </span>
     </p>
   </div>

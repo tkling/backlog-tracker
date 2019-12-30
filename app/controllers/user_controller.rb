@@ -32,10 +32,6 @@ class UserController < ApplicationController
   def setup_view_data
     options = { include_played_free_games: 1, include_appinfo: 1 }
     response = Steam::Player.owned_games(@id, params: options)
-
-    @games = response['games'].map { |g| Game.new(g) }
-    @most_played_game = @games.min { |g1, g2| g2.playtime_forever <=> g1.playtime_forever }
-    @total_hours_played = @games.map(&:playtime_forever_hours).inject(:+).round(2)
-    @unplayed = @games.select { |g| g.playtime_forever.zero? }
+    @collection_data = CollectionData.new(response['games'])
   end
 end

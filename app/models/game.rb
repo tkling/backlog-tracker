@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require 'virtus/model'
-
 class Game
-  include Virtus.model
+  attr_reader :name, :appid, :playtime_forever, :playtime_forever_hours
 
-  attribute :name, String
-  attribute :appid, Integer
-  attribute :playtime_forever, Integer, default: 0
-  attribute :playtime_forever_hours, Float, default: ->(game, _) { (Float(game.playtime_forever) / 60).round(2) }
+  def initialize(steam_game_hash)
+    @name             = steam_game_hash['name']
+    @appid            = steam_game_hash['appid']
+    @playtime_forever = steam_game_hash['playtime_forever'] || 0
+    @playtime_forever_hours = (Float(@playtime_forever) / 60).round(2)
+  end
 end
