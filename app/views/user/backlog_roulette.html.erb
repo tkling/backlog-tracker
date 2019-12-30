@@ -1,0 +1,24 @@
+<% @page_title = "Backlog Roulette!" %>
+
+<div class="title">
+  <h1>Backlog Roulette 🎲 🎰 🎯</h1>
+  <h4>... not sure what you want to play, but you feel ashamed at the size of your backlog</h4>
+</div>
+
+<br/><br/>
+
+<div class="title">
+  <h3>You're going to go play:</h3>
+  <h2><%= @collection_data.unplayed_games.sample.name %></h2>
+</div>
+
+<br/><br/>
+
+<div class="title">
+  <h3>Here are all your unplayed games (backlog) from which that game was chosen:</h3>
+  <ul>
+    <% @collection_data.unplayed_games.sort_by(&:name).each do |game| %>
+    <li><%= game.name %></li>
+    <% end %>
+  </ul>
+</div>

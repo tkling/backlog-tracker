@@ -4,16 +4,20 @@ class UserController < ApplicationController
   def instructions; end
 
   def games
-    index
+    instantiate_collection_data
   end
 
-  def index
+  def backlog_roulette
+    instantiate_collection_data
+  end
+
+  private
+
+  def instantiate_collection_data
     @id = params[:user_id]
     setup_steam_id
     setup_view_data
   end
-
-  private
 
   def setup_steam_id
     @id.strip!
