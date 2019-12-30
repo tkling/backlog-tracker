@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ruby '2.6.5'
 source 'https://rubygems.org'
 
@@ -34,14 +36,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'puma', '~> 4'
+gem 'rubocop', '~> 0.78.0', require: false
+gem 'ruby-openid', '~> 2.7'
+gem 'steam-api', '~> 1.0'
 gem 'typhoeus', '~> 0.7'
 gem 'virtus', '~> 1.0'
-gem 'steam-api', '~> 1.0'
-gem 'ruby-openid', '~> 2.7'
 
 group :production do
   gem 'pg', '~> 0.18'
+  gem 'puma', '~> 4'
   gem 'rails_12factor', '~> 0.0'
 end
 
@@ -50,12 +53,11 @@ end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'pry-byebug'
   gem 'dotenv-rails'
-  gem 'sqlite3', '~> 1.3.6'
   gem 'foreman'
+  gem 'pry-byebug'
+  gem 'sqlite3', '~> 1.3.6'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
