@@ -36,7 +36,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'rubocop', '~> 0.78.0', require: false
 gem 'ruby-openid', '~> 2.7'
 gem 'steam-api', '~> 1.0'
 gem 'typhoeus', '~> 0.7'
@@ -55,6 +54,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'foreman'
   gem 'pry-byebug'
+  gem 'rubocop', '~> 0.78.0', require: false
   gem 'sqlite3', '~> 1.3.6'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
