@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class UserController < ApplicationController
+  include ApplicationHelper
+  before_action :setup_steam_id, only: %i[games backlog_roulette]
+
   def instructions; end
 
   def games
@@ -14,28 +17,27 @@ class UserController < ApplicationController
   private
 
   def instantiate_collection_data
-    @id = params[:user_id]
-    setup_steam_id
-    setup_view_data
+    options = { include_played_free_games: 1, include_appinfo: 1 }
+    response = Steam::Player.owned_games(@id, params: options)
+    @collection_data = CollectionData.new(response['games'])
   end
 
   def setup_steam_id
-    @id.strip!
+    @id = params[:user_id].strip
     if @id =~ /^[\d]{17}$/
-      @vanity_name = session[:persona_name]
+      @vanity_name = determine_vanity_name
     else
       @vanity_name = @id.clone
-      @id = steamid_64(@id)
+      @id = steamid_64(@vanity_name)
     end
+  end
+
+  def determine_vanity_name
+    return steam_display_name if logged_in? && steam_id == @id
+    Steam::User.summary(@id)['personaname'] || @id
   end
 
   def steamid_64(vanity_name)
     Steam::User.vanity_to_steamid(vanity_name)
-  end
-
-  def setup_view_data
-    options = { include_played_free_games: 1, include_appinfo: 1 }
-    response = Steam::Player.owned_games(@id, params: options)
-    @collection_data = CollectionData.new(response['games'])
   end
 end
