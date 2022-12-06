@@ -29,6 +29,9 @@ gem 'jbuilder', '~> 2.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# no db for now
+gem 'activerecord-nulldb-adapter'
+
 gem 'ruby-openid', '~> 2.7'
 gem 'steam-api', '~> 1.0'
 gem 'typhoeus', '~> 0.7'
