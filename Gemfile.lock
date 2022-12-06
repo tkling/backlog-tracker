@@ -265,7 +265,7 @@ DEPENDENCIES
   ruby-openid (~> 2.7)
   sass-rails (~> 6.0)
   spring
-  sqlite3 (~> 1.4)
+  sqlite3
   steam-api (~> 1.0)
   turbolinks
   typhoeus (~> 0.7)

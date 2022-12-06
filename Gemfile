@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.0'
 
 # no db for now
 gem 'activerecord-nulldb-adapter'
+gem 'sqlite3'
 
 gem 'ruby-openid', '~> 2.7'
 gem 'steam-api', '~> 1.0'
@@ -46,7 +47,6 @@ group :development, :test do
   gem 'foreman'
   gem 'pry-byebug'
   gem 'rubocop', '~> 0.78.0', require: false
-  gem 'sqlite3', '~> 1.4'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
