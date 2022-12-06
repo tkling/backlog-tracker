@@ -29,12 +29,15 @@ gem 'jbuilder', '~> 2.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# no db for now
+gem 'activerecord-nulldb-adapter'
+gem 'sqlite3'
+
 gem 'ruby-openid', '~> 2.7'
 gem 'steam-api', '~> 1.0'
 gem 'typhoeus', '~> 0.7'
 
 group :production do
-  gem 'pg', '~> 0.18'
   gem 'puma', '~> 4'
   gem 'rails_12factor', '~> 0.0'
 end
@@ -44,7 +47,6 @@ group :development, :test do
   gem 'foreman'
   gem 'pry-byebug'
   gem 'rubocop', '~> 0.78.0', require: false
-  gem 'sqlite3', '~> 1.4'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

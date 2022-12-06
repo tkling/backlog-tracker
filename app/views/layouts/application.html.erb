@@ -8,8 +8,8 @@
   <%= csrf_meta_tags %>
   <script type="text/javascript">
     var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', <%= ENV['GA_ID'] %>]);
-    _gaq.push(['_setDomainName', <%= ENV['GA_DOMAIN'] %>]);
+    _gaq.push(['_setAccount', '<%= ENV['GA_ID'] %>']);
+    _gaq.push(['_setDomainName', '<%= ENV['GA_DOMAIN'] %>']);
     _gaq.push(['_trackPageview']);
 
     (function () {

@@ -54,6 +54,8 @@ GEM
     activerecord (7.0.4)
       activemodel (= 7.0.4)
       activesupport (= 7.0.4)
+    activerecord-nulldb-adapter (0.8.0)
+      activerecord (>= 5.2.0, < 7.1)
     activestorage (7.0.4)
       actionpack (= 7.0.4)
       activejob (= 7.0.4)
@@ -147,7 +149,6 @@ GEM
     parallel (1.22.1)
     parser (3.1.3.0)
       ast (~> 2.4.1)
-    pg (0.21.0)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -248,13 +249,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-nulldb-adapter
   bigdecimal (~> 1.3.5)
   dotenv-rails
   foreman
   globalid (~> 1.0)
   jbuilder (~> 2.0)
   jquery-rails
-  pg (~> 0.18)
   pry-byebug
   puma (~> 4)
   rails (~> 7.0.4)
@@ -264,7 +265,7 @@ DEPENDENCIES
   ruby-openid (~> 2.7)
   sass-rails (~> 6.0)
   spring
-  sqlite3 (~> 1.4)
+  sqlite3
   steam-api (~> 1.0)
   turbolinks
   typhoeus (~> 0.7)
