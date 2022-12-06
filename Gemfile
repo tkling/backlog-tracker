@@ -37,7 +37,6 @@ gem 'steam-api', '~> 1.0'
 gem 'typhoeus', '~> 0.7'
 
 group :production do
-  gem 'pg', '~> 0.18'
   gem 'puma', '~> 4'
   gem 'rails_12factor', '~> 0.0'
 end
