@@ -21,4 +21,8 @@ module ApplicationHelper
   def logged_in?
     session.key?(:steam_id)
   end
+
+  def total_playtime_percent_string(game, collection)
+    "%.2f" % (game.playtime.in_hours / collection.total_hours_played * 100.0).round(2)
+  end
 end

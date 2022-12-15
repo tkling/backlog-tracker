@@ -137,6 +137,7 @@ ul.menu-list {
     display: inline-block;
     padding-left: 11px;
     padding-right: 11px;
+    margin-bottom: 1em;
     width: 97%;
 }
 
@@ -144,8 +145,42 @@ ul.menu-list {
     background-image: url("/images/grey.png");
     border: 3px solid #000;
     display: inline-block;
-    max-width: 45%;
-    min-width: 45%;
+    max-width: 45.5%;
+    min-width: 45.5%;
+    padding: 11px;
+    text-align: center;
+}
+
+.list-box {
+    padding-left: 18px;
+    margin-bottom: 0px;
+}
+
+ul.ghost-list {
+    list-style-type: "👻 ";
+}
+
+ul.game-list {
+    list-style-type: "🎮 ";
+}
+
+
+.game-playtime-list {
+    background-image: url("/images/grey.png");
+    border: 3px solid #000;
+    display: inline-block;
+    max-width: 70%;
+    min-width: 70%;
+    padding: 11px;
+    text-align: center;
+}
+
+.friend-list {
+    background-image: url("/images/grey.png");
+    border: 3px solid #000;
+    display: inline-block;
+    max-width: 21%;
+    min-width: 21%;
     padding: 11px;
     text-align: center;
 }
@@ -158,13 +193,11 @@ ul.menu-list {
 .box-left {
     clear: left;
     float: left;
-    margin-right: 13px;
 }
 
 .box-right {
     clear: right;
     float: right;
-    margin-left: 13px;
 }
 
 .stat-info-center {
@@ -173,7 +206,7 @@ ul.menu-list {
 }
 
 .stats-info-container {
-    padding-bottom: 10px;
+    padding-bottom: 1em;
 }
 
 .clear {

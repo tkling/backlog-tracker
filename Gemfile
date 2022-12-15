@@ -13,7 +13,7 @@ gem 'sass-rails', '~> 6.0'
 gem 'uglifier', '>= 1.3.0'
 
 # backwards compat
-gem 'bigdecimal', '~> 1.3.5'
+gem 'bigdecimal', '~> 2.0'
 gem 'globalid', '~> 1.0'
 gem 'rexml'
 
@@ -25,6 +25,7 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
+gem 'json', '~> 2.6'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

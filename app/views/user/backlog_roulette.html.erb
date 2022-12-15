@@ -1,8 +1,9 @@
 <% @page_title = "Backlog Roulette!" %>
 
 <div class="title">
-  <h1>Backlog Roulette 🎲 🎰 🎯</h1>
-  <h4>... not sure what you want to play, but you feel ashamed at the size of your backlog</h4>
+  <h1>Backlog Roulette for <%= @vanity_name || @id %> 🎲 🎰 🎯</h1>
+  <h4>... not sure what you want to play, but you feel ashamed at the size of your backlog.</h4>
+  <h4><%= link_to 'back to collection overview', user_games_path(@vanity_name || @id) %></h4>
 </div>
 
 <br/><br/>
