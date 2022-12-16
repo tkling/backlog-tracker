@@ -54,9 +54,13 @@
   <div class="friend-list box-right" style="text-align:left">
     <h3><%= @vanity_name || @id %>'s friends</h3>
     <ul class="list-box ghost-list">
-      <% @ids_and_vanities.sort_by {|i| i[:persona_name]&.to_s&.downcase }.each do |blob| %>
-        <li><%= link_to(blob[:persona_name], user_games_path(user_id: blob[:id])) %></li>
+      <% @ids_to_vanities.sort_by {|_id, vanity| vanity&.to_s&.downcase }.each do |id, vanity| %>
+        <% user_id = vanity || id %>
+        <li><%= link_to(user_id, user_games_path(user_id)) %></li>
       <% end %>
+      <%# @ids_and_vanities.sort_by {|i| i[:persona_name]&.to_s&.downcase }.each do |blob| %>
+<!--        <li><%#= link_to(blob[:persona_name], user_games_path(user_id: blob[:id])) %></li>-->
+      <%# end %>
     </ul>
   </div>
   <div class="clear"></div>

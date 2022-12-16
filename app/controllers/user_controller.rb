@@ -22,9 +22,14 @@ class UserController < ApplicationController
   def fetch_friend_persona_names
     friend_ids = Steam::User.friends(@id).pluck('steamid')
     summaries = Steam::User.summaries(friend_ids)
-    @ids_and_vanities = summaries.map do |summary|
-      {id: summary['steamid'], persona_name: summary['personaname']}
-    end
+    id_vanity_map = Hash[summaries.map{|s| [s['steamid'], s['personaname']]}]
+    prefix = "id-vanity-map-"
+    cache_key = -> (steamid) { "#{prefix}#{steamid}" }
+    unkeyed = -> (cache_key) { cache_key.delete_prefix(prefix) }
+    keys = summaries.pluck('steamid').map(&cache_key)
+    @ids_to_vanities =
+      Rails.cache.fetch_multi(*keys, expires_in: 10.minutes) {|k| id_vanity_map[unkeyed.(k)] }
+                 .transform_keys {|k| unkeyed.(k) }
   end
 
   def fetch_collection_data
