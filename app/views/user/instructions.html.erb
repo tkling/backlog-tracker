@@ -15,4 +15,10 @@
       Your Steam ID is in the URL - it will look like either <span class="bold">steamcommunity.com/id/{Steam ID}/home</span> or
       <span class="bold">steamcommunity.com/profiles/{Steam ID}/home</span>.
   </p>
+
+  <p>
+    <% template = 'your-steam-id-here' %>
+    After you find your Steam ID, replace `<%= template %>` in the following link and head to
+    the page to see your Steam profile's stats!
+    <%= link_to user_games_url(template), user_games_path(template) %>
 </div>
