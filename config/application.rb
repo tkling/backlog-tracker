@@ -24,5 +24,7 @@ module Backlogtracker
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.active_record.legacy_connection_handling = false
+
+    config.cache_store = :memory_store
   end
 end

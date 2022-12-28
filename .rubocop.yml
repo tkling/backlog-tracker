@@ -1229,7 +1229,7 @@ Layout/SpaceInsideStringInterpolation:
     - space
     - no_space
 
-Layout/Tab:
+Layout/IndentationStyle:
   Description: 'No hard tabs.'
   StyleGuide: '#spaces-indentation'
   Enabled: true
@@ -1374,7 +1374,7 @@ Lint/EmptyWhen:
   Enabled: true
   VersionAdded: '0.45'
 
-Lint/EndInMethod:
+Style/EndBlock:
   Description: 'END blocks should not be placed inside method definitions.'
   Enabled: true
   VersionAdded: '0.9'
@@ -1766,11 +1766,6 @@ Lint/UselessAccessModifier:
 Lint/UselessAssignment:
   Description: 'Checks for useless assignment to a local variable.'
   StyleGuide: '#underscore-unused-vars'
-  Enabled: true
-  VersionAdded: '0.11'
-
-Lint/UselessComparison:
-  Description: 'Checks for comparison of something with itself.'
   Enabled: true
   VersionAdded: '0.11'
 
@@ -2356,24 +2351,6 @@ Style/BlockDelimiters:
   #   # also good
   #   collection.each do |element| puts element end
   AllowBracesOnProceduralOneLiners: false
-
-Style/BracesAroundHashParameters:
-  Description: 'Enforce braces style around hash parameters.'
-  Enabled: true
-  VersionAdded: '0.14.1'
-  VersionChanged: '0.28'
-  EnforcedStyle: no_braces
-  SupportedStyles:
-    # The `braces` style enforces braces around all method parameters that are
-    # hashes.
-    - braces
-    # The `no_braces` style checks that the last parameter doesn't have braces
-    # around it.
-    - no_braces
-    # The `context_dependent` style checks that the last parameter doesn't have
-    # braces around it, but requires braces if the second to last parameter is
-    # also a hash literal.
-    - context_dependent
 
 Style/CaseEquality:
   Description: 'Avoid explicit use of the case equality operator(===).'
@@ -2983,7 +2960,7 @@ Style/MethodDefParentheses:
     - require_no_parentheses
     - require_no_parentheses_except_multiline
 
-Style/MethodMissingSuper:
+Lint/MissingSuper:
   Description: Checks for `method_missing` to call `super`.
   StyleGuide: '#no-method-missing'
   Enabled: true

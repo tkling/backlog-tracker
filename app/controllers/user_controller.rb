@@ -7,19 +7,33 @@ class UserController < ApplicationController
   def instructions; end
 
   def games
-    instantiate_collection_data
+    expires_in 5.minutes
+    fetch_collection_data
+    fetch_friend_persona_names
   end
 
   def backlog_roulette
-    instantiate_collection_data
+    expires_in 30.seconds
+    fetch_collection_data
   end
 
   private
 
-  def instantiate_collection_data
-    options = { include_played_free_games: 1, include_appinfo: 1 }
-    response = Steam::Player.owned_games(@id, params: options)
-    @collection_data = CollectionData.new(response['games'])
+  def fetch_friend_persona_names
+    friend_ids = Steam::User.friends(@id).pluck('steamid')
+    summaries = Steam::User.summaries(friend_ids)
+    id_vanity_map = Hash[summaries.map{|s| [s['steamid'], s['personaname']]}]
+    prefix = "id-vanity-map-"
+    cache_key = -> (steamid) { "#{prefix}#{steamid}" }
+    unkeyed = -> (cache_key) { cache_key.delete_prefix(prefix) }
+    keys = summaries.pluck('steamid').map(&cache_key)
+    @ids_to_vanities =
+      Rails.cache.fetch_multi(*keys, expires_in: 10.minutes) {|k| id_vanity_map[unkeyed.(k)] }
+                 .transform_keys {|k| unkeyed.(k) }
+  end
+
+  def fetch_collection_data
+    @collection_data = CollectionData.for_steam_id(@id)
   end
 
   def setup_steam_id

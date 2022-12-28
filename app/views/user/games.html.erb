@@ -5,50 +5,59 @@
 </div>
 
 <div class="stats-info-container">
-  <h2>Collection stats:</h2>
   <div class="stat-info box-left">
     <h3>Played vs. unplayed (backlog)</h3>
     <p>Number of games in collection:<br /><span class="bold"><%= @collection_data.games.count %></span></p>
-    <p>Number of games not yet played:<br /><span class="bold"><%= @collection_data.unplayed_games.count %></span></p>
-    <p>Percentage of games not yet played:<br />
-      <span class="bold"><%= (Float(@collection_data.unplayed_games.count) / Float(@collection_data.games.count) * 100.0).round(2) %></span>
+    <% percent_unplayed = (Float(@collection_data.unplayed_games.count) / Float(@collection_data.games.count) * 100.0).round(2) %>
+    <p>Number of games not yet played:<br />
+      <span class="bold"><%= @collection_data.unplayed_games.count %> (<%= percent_unplayed %>%)</span>
+    </p>
+    <p>I'm feeling lucky:<br />
+      <span class="bold">🎲 <%= link_to 'backlog roulette', backlog_roulette_path(@vanity_name || @id) %> 🎰</span>
     </p>
   </div>
-  <div class="stat-info achievements box-right">
-    <h3>Achievements</h3>
-    <p>give us a moment, we're querying the intertubes...</p>
-    <!--<div class="hidden steamid64"><%= @id %></div>-->
-    <!--<div class="hidden baseUrl">@ViewBag.BaseUrl</div>-->
-    <!--<div class="hidden appids">-->
-      <!--@{foreach(string appid in Model.AppIds) {-->
-      <!--if (appid == Model.AppIds.Last()) {-->
-      <!--<text>@appid.Trim()</text>} else {<text>@appid.Trim(),</text>-->
-      <!--}-->
-      <!--}}-->
-    <!--</div>-->
-  </div>
-  <div class="clear" ></div>
-</div>
-
-<div class="stats-info-container">
-  <h2>Playtime stats:</h2>
-  <div class="stat-info box-left">
+  <div class="stat-info box-right">
     <h3>Total time played</h3>
     <p>Total hours played:<br /><span class="bold"><%= @collection_data.total_hours_played %></span></p>
     <p>days: <span class="bold"><%= (@collection_data.total_hours_played / 24.0).round(2) %></span>&nbsp;
       weeks: <span class="bold"><%= (@collection_data.total_hours_played / 24.0 / 7.0).round(2) %></span>&nbsp;
       YEARS: <span class="bold"><%= (@collection_data.total_hours_played / 24.0 / 365.0).round(2) %></span></p>
-    <p>Average hours/game:<br /><span class="bold"><%= (@collection_data.total_hours_played / Float(@collection_data.games.count)).round(2) %></span></p>
-  </div>
-  <div class="stat-info box-right">
-    <h3>Most played game</h3>
-    <p>Most played game:<br /><span class="bold"><%= @collection_data.most_played_game.name %></span></p>
-    <p>Hours played:<br /><span class="bold"><%= @most_played_hours = @collection_data.most_played_game.playtime_forever_hours %></span></p>
-    <p>Percentage of total play time:<br />
+    <p>Average hours/game:<br />
       <span class="bold">
-          <%= (Float(@most_played_hours) / @collection_data.total_hours_played * 100.0).round(2) %>
+        <%= (@collection_data.total_hours_played / Float(@collection_data.games.count)).round(2) %>
       </span>
     </p>
+  </div>
+  <div class="clear" ></div>
+</div>
+
+<div class="stats-info-container">
+  <div class="game-playtime-list box-left" style="text-align:left">
+    <h3>
+      <span><%= @vanity_name || @id %>'s games</span>
+      <span style="float: right">playtime (% of total)</span>
+    </h3>
+    <ul class="list-box game-list">
+      <% games = @collection_data.games.select {|g| g.playtime_forever.positive? } %>
+      <% games.sort_by(&:playtime_forever).reverse.each do |game| %>
+        <li>
+          <span style="float: left"><%= game %></span>
+          <span style="float: right">
+          <%= game.playtime %>
+            &nbsp;
+          (<%= total_playtime_percent_string(game, @collection_data) %>%)
+        </span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="friend-list box-right" style="text-align:left">
+    <h3><%= @vanity_name || @id %>'s friends</h3>
+    <ul class="list-box ghost-list">
+      <% @ids_to_vanities.sort_by {|_id, vanity| vanity&.to_s&.downcase }.each do |id, vanity| %>
+        <li><%= link_to(vanity || id, user_games_path(id)) %></li>
+      <% end %>
+    </ul>
   </div>
   <div class="clear"></div>
 </div>
