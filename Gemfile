@@ -47,7 +47,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'foreman'
   gem 'pry-byebug'
-  gem 'rubocop', '~> 0.78.0', require: false
+  gem 'rubocop', '~> 1.41', require: false
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
