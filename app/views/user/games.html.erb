@@ -13,7 +13,7 @@
       <span class="bold"><%= @collection_data.unplayed_games.count %> (<%= percent_unplayed %>%)</span>
     </p>
     <p>I'm feeling lucky:<br />
-      <span class="bold">🎲 <%= link_to 'backlog roulette', backlog_roulette_path(@vanity_name || @id) %> 🎰</span>
+      <span class="bold">🎲 <%= link_to 'backlog roulette', backlog_roulette_path(@id) %> 🎰</span>
     </p>
   </div>
   <div class="stat-info box-right">
