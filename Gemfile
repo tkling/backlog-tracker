@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-ruby '3.1.3'
+ruby '3.4.7'
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -52,3 +52,5 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+gem "mutex_m", "~> 0.3.0"
