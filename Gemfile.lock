@@ -188,7 +188,7 @@ GEM
     psych (5.2.6)
       date
       stringio
-    puma (4.3.12)
+    puma (7.0.4)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (2.2.20)
@@ -318,7 +318,7 @@ DEPENDENCIES
   json (~> 2.6)
   mutex_m (~> 0.3.0)
   pry-byebug
-  puma (~> 4)
+  puma (~> 7)
   rails (~> 7.1.5)
   rails_12factor (~> 0.0)
   rexml
